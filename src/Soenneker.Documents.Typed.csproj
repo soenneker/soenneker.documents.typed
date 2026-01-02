@@ -16,7 +16,7 @@
         <AssemblyName>Soenneker.Documents.Typed</AssemblyName>
         <PackageId>Soenneker.Documents.Typed</PackageId>
         <PackageTags>documents typed cosmos repository shared container entitytype entity typeddocument object csharp dotnet c# .net</PackageTags>
-        <Copyright>Copyright © 2025 Jake Soenneker</Copyright>
+        <Copyright>Copyright © 2025-2026 Jake Soenneker</Copyright>
         <Authors>Jake Soenneker</Authors>
         <Company>https://soenneker.com</Company>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
