@@ -4,9 +4,7 @@ using Soenneker.Documents.Typed.Abstract;
 
 namespace Soenneker.Documents.Typed;
 
-/// <summary>
-/// A generic document type for containers that have multiple types of documents
-/// </summary>
+/// <inheritdoc cref="ITypedDocument"/>
 public abstract class TypedDocument : Document.Document, ITypedDocument
 {
     [JsonPropertyName("entityType")]
