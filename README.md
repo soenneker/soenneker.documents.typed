@@ -5,20 +5,37 @@
 
 # Soenneker.Documents.Typed
 
-A generic document type for containers that have multiple types of documents.
+Adds an `EntityType` discriminator to the base document model for heterogeneous storage containers.
 
-## Install
+## Installation
 
 ```bash
 dotnet add package Soenneker.Documents.Typed
 ```
 
-## What you get
+## Usage
 
-- `ITypedDocument` — A generic document type for containers that have multiple types of documents.
+```csharp
+using Soenneker.Documents.Typed;
 
-## API at a glance
+public sealed class CustomerDocument : TypedDocument
+{
+    public override string EntityType { get; set; } = "customer";
 
-| API | What it does | Result / important behavior |
-| --- | --- | --- |
-| `ITypedDocument.EntityType` | Does not exist on the entity itself, and only belongs to documents. | Does not exist on the entity itself, and only belongs to documents. |
+    public string Email { get; set; } = null!;
+}
+
+var customer = new CustomerDocument
+{
+    DocumentId = "customer-42",
+    PartitionKey = "tenant-7",
+    CreatedAt = DateTimeOffset.UtcNow,
+    Email = "ada@example.com"
+};
+```
+
+`EntityType` serializes as `entityType` with both System.Text.Json and Newtonsoft.Json. Identity and timestamp fields come from `Document` and retain their existing JSON names.
+
+The discriminator is application-defined. This package does not register polymorphic converters, map discriminator values to CLR types, validate uniqueness, or stop callers from changing a value after construction. Keep values stable and configure your serializer or repository to select the correct concrete type during reads.
+
+`TypedDocument` is abstract because each document family must implement `EntityType`. Use `ITypedDocument` when persistence or routing code only needs the shared identity, timestamp, and discriminator contract.

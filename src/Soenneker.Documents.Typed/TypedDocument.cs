@@ -4,7 +4,6 @@ using Soenneker.Documents.Typed.Abstract;
 
 namespace Soenneker.Documents.Typed;
 
-/// <inheritdoc cref="ITypedDocument"/>
 public abstract class TypedDocument : Document.Document, ITypedDocument
 {
     [JsonPropertyName("entityType")]

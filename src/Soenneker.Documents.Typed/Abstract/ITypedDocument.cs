@@ -5,12 +5,12 @@ using System.Text.Json.Serialization;
 namespace Soenneker.Documents.Typed.Abstract;
 
 /// <summary>
-/// A generic document type for containers that have multiple types of documents
+/// Defines a document with an application-defined type discriminator.
 /// </summary>
 public interface ITypedDocument : IDocument
 {
     /// <summary>
-    /// Does not exist on the entity itself, and only belongs to documents
+    /// Gets or sets the discriminator used to identify the document's entity type.
     /// </summary>
     [JsonPropertyName("entityType")]
     [JsonProperty("entityType")]
