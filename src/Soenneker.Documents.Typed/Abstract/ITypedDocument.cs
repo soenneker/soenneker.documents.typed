@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using Soenneker.Documents.Document.Abstract;
+﻿using Soenneker.Documents.Document.Abstract;
 using System.Text.Json.Serialization;
 
 namespace Soenneker.Documents.Typed.Abstract;
@@ -13,6 +12,5 @@ public interface ITypedDocument : IDocument
     /// Gets or sets the discriminator used to identify the document's entity type.
     /// </summary>
     [JsonPropertyName("entityType")]
-    [JsonProperty("entityType")]
     string EntityType { get; set; }
 }

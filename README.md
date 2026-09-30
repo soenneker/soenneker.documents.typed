@@ -34,7 +34,7 @@ var customer = new CustomerDocument
 };
 ```
 
-`EntityType` serializes as `entityType` with both System.Text.Json and Newtonsoft.Json. Identity and timestamp fields come from `Document` and retain their existing JSON names.
+`EntityType` serializes as `entityType` with System.Text.Json. Identity and timestamp fields come from `Document` and retain their existing JSON names.
 
 The discriminator is application-defined. This package does not register polymorphic converters, map discriminator values to CLR types, validate uniqueness, or stop callers from changing a value after construction. Keep values stable and configure your serializer or repository to select the correct concrete type during reads.
 
